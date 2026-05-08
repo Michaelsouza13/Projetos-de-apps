@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Exportador para o Drive",
+    "version": "1.0",
+    "description": "Ícone flutuante para arrastar e enviar planilhas para o Drive.",
+    "permissions": [
+        "downloads",
+        "identity"
+    ],
+    "host_permissions": [
+        "https://*.marcosinacio.com.br/*",
+        "https://www.googleapis.com/*",
+        "<all_urls>"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "oauth2": {
+        "client_id": "1000194990704-uilrbss3lpd792mmg5kgjloicisplvc5.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/drive.file"
+        ]
+    }
+}
